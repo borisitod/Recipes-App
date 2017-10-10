@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {ShoppingListService} from "../../services/shopping-list";
 
 @Component({
-  selector: 'page-shopping-list',
-  templateUrl: 'shopping-list.html',
+    selector: 'page-shopping-list',
+    templateUrl: 'shopping-list.html',
 })
 
 export class ShoppingListPage {
-  onAddItem(form: NgForm) {
-    console.log(form);
-  }
+
+    constructor(private slService: ShoppingListService) {}
+
+    onAddItem(form: NgForm) {
+       this.slService.addItem(form.value.ingredientName, form.value.amount);
+       form.reset();
+    }
 }
