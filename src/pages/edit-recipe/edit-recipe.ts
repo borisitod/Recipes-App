@@ -42,7 +42,13 @@ export class EditRecipePage implements OnInit {
                 return {name: name, amount: 1};
             })
         }
-        this.recipesService.addRecipe(value.title, value.difficulty, value.description, ingredients);
+
+        if (this.mode == 'Edit') {
+            this.recipesService.updateRecipe(this.index, value.title, value.difficulty, value.description, ingredients);
+        } else {
+            this.recipesService.addRecipe(value.title, value.difficulty, value.description, ingredients);
+        }
+
         this.recipeForm.reset();
         this.navCtrl.popToRoot();
     }
