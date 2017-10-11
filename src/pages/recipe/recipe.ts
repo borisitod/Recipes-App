@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Recipe} from "../../models/recipes";
 import {EditRecipePage} from "../edit-recipe/edit-recipe";
+import {ShoppingListService} from "../../services/shopping-list";
+import {RecipesService} from "../../services/recipes";
 
 /**
  * Generated class for the RecipePage page.
@@ -20,7 +22,12 @@ export class RecipePage implements OnInit{
   recipe: Recipe;
   index: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      private slService: ShoppingListService,
+      private recipeService: RecipesService
+      ) {
   }
 
   ngOnInit() {
@@ -35,6 +42,15 @@ export class RecipePage implements OnInit{
           recipe: this.recipe,
           index: this.index
       });
+  }
+
+  onAddIngredients() {
+      this.slService.addItems(this.recipe.ingredients)
+  }
+
+  onDeleteRecipe() {
+    this.recipeService.removeRecipe(this.index);
+    this.navCtrl.popToRoot();
   }
 
 

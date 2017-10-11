@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from "ionic-angular";
+import {NavController} from "ionic-angular";
 import {Recipe} from "../../models/recipes";
 import {RecipesService} from "../../services/recipes";
 import {RecipePage} from "../recipe/recipe";
@@ -13,7 +13,7 @@ export class RecipesPage {
 
     recipes: Recipe[];
 
-    constructor(private navCtrl: NavController, private recipesService: RecipesService, private navParam: NavParams) {
+    constructor(private navCtrl: NavController, private recipesService: RecipesService) {
     }
 
     ionViewWillEnter(){
