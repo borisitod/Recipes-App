@@ -35,7 +35,7 @@ export class EditRecipePage implements OnInit {
                 return {name: name, amount: 1};
             })
         }
-        this.recipesService.addRecipe(value.title, value.description, value.difficulty, ingredients);
+        this.recipesService.addRecipe(value.title, value.difficulty, value.description, ingredients);
         this.recipeForm.reset();
         this.navCtrl.popToRoot();
     }
