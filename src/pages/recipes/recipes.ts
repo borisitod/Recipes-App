@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
-import {NavController} from "ionic-angular";
+import {NavController, NavParams} from "ionic-angular";
 import {EditRecipePage} from "../edit-recipe/edit-recipe";
 import {Recipe} from "../../models/recipes";
 import {RecipesService} from "../../services/recipes";
+import {RecipePage} from "../recipe/recipe";
 
 @Component({
     selector: 'page-recipes',
@@ -12,7 +13,7 @@ export class RecipesPage {
 
     recipes: Recipe[];
 
-    constructor(private navCtrl: NavController, private recipesService: RecipesService) {
+    constructor(private navCtrl: NavController, private recipesService: RecipesService, private navParam: NavParams) {
     }
 
     ionViewWillEnter(){
@@ -23,7 +24,10 @@ export class RecipesPage {
         this.navCtrl.push(EditRecipePage, {mode: 'New'})
     }
 
-    onLoadRecipe() {
-
+    onLoadRecipe(recipe: Recipe, index: number) {
+        this.navCtrl.push(RecipePage, {
+            recipe: recipe,
+            index: index
+        })
     }
 }
