@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from "ionic-angular";
-import {EditRecipePage} from "../edit-recipe/edit-recipe";
 import {Recipe} from "../../models/recipes";
 import {RecipesService} from "../../services/recipes";
 import {RecipePage} from "../recipe/recipe";
+import {EditRecipePage} from "../edit-recipe/edit-recipe";
 
 @Component({
     selector: 'page-recipes',

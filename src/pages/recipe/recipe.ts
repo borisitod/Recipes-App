@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Recipe} from "../../models/recipes";
+import {EditRecipePage} from "../edit-recipe/edit-recipe";
 
 /**
  * Generated class for the RecipePage page.
@@ -25,6 +26,15 @@ export class RecipePage implements OnInit{
   ngOnInit() {
     this.recipe = this.navParams.get('recipe');
     this.index = this.navParams.get('index');
+  }
+
+
+  onEditRecipe(index: number) {
+      this.navCtrl.push(EditRecipePage, {
+          mode: 'Edit',
+          recipe: this.recipe,
+          index: this.index
+      });
   }
 
 
