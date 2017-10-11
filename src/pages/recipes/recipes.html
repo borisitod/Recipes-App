@@ -1,6 +1,11 @@
 <ion-header>
 
   <ion-navbar>
+    <ion-buttons start>
+      <button ion-button ion-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-buttons end>
       <button ion-button ion-only (click)="onNewRecipe()">
         <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
