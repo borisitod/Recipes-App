@@ -41,10 +41,16 @@ export class ShoppingListPage {
 
             } else {
                 this.authService.getActiveUser().getToken()
-                    .then(data => {
+                    .then(
                         (token: string) => {
+                            this.slService.storeList(token)
+                                .subscribe(
+                                    () => console.log('Success'),
+                                    error => {
+                                        console.log(error);
+                                    }
+                            )
 
-                        }
                     })
                     .catch(error => {
                         console.log(error);
