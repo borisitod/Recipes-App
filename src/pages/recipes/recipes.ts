@@ -91,10 +91,6 @@ export class RecipesPage {
 
     }
 
-    private loadItems () {
-        this.recipes = this.recipesService.getRecipes();
-    }
-
     private handleError(errorMsg: string) {
         const alert = this.alertCtrl.create({
             title: 'An error occurred!',
