@@ -62,12 +62,12 @@ export class ShoppingListPage {
                                     },
                                     error => {
                                         loading.dismiss();
-                                        this.handleError(error.message);
+                                        this.handleError(error.json().error);
                                     }
                                 )
 
                         })
-                
+
             } else if (data.action == 'store') {
                 loading.present();
                 this.authService.getActiveUser().getToken()
@@ -80,7 +80,7 @@ export class ShoppingListPage {
                                     },
                                     error => {
                                         loading.dismiss();
-                                        this.handleError(error.message);
+                                        this.handleError(error.json().error);
                                     }
                             )
 
